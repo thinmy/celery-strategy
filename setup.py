@@ -12,5 +12,5 @@ setup(
         'celery>=4.0.0',
         'redis>=2.10.5'
     ],
-    packages=['celery-strategy']
+    packages=['celery_strategy']
 )
