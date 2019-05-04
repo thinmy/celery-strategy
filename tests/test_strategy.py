@@ -45,7 +45,7 @@ class TestSimpleTask:
             task = StrategyWrapper(simple_task).handle_async()
             assert isinstance(task, AsyncResult)
 
-    @pytest.mark.celery(broker_url="redis://localhost:63790")
+    @pytest.mark.celery(broker_url="redis://localhost")
     def test__handle__async(self, scoped_app, celery_worker):
         with scoped_app as app:
             @app.task()
@@ -55,7 +55,7 @@ class TestSimpleTask:
             task = StrategyWrapper(simple_task).handle()
             assert isinstance(task, AsyncResult)
 
-    @pytest.mark.celery(broker_url="redis://localhost:63790")
+    @pytest.mark.celery(broker_url="redis://localhost")
     def test__handle__sync(self, scoped_app, celery_worker):
         celery_worker.stop()
 
